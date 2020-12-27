@@ -32,9 +32,9 @@ namespace Problem_3
         private static long ResolveSlopes(Map map, params (int right, int down)[] slopes)
         {
             long multipliedNumberOfTrees = 1;
-            foreach (var slope in slopes)
+            foreach (var (right, down) in slopes)
             {
-                multipliedNumberOfTrees *= GetNumberOfTrees(map, slope.right, slope.down);
+                multipliedNumberOfTrees *= GetNumberOfTrees(map, right, down);
             }
 
             return multipliedNumberOfTrees;
