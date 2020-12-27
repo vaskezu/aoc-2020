@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Problem_4": {
+      "commandName": "Project",
+      "commandLineArgs": "sample_1.txt input_1.txt"
+    }
+  }
+}
