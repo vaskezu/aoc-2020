@@ -46,6 +46,9 @@ namespace Problem_5
                 seatIds.Add(seatId);
             }
 
+            if (seatIds.Count < 1)
+                throw new Exception("Seat ids collection is empty.");
+
             return FindMissingSeat(seatIds.OrderBy(s => s));
         }
 
