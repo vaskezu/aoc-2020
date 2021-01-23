@@ -28,8 +28,8 @@ namespace Problem_9
             for (int i = preamble; i < numbers.Length; i++)
             {
                 var preambleList = GetPreambleList(numbers, preamble, i);
-                var success = GetPreambleSum(preambleList, numbers[i]);
-                if (!success)
+                var found = IsPreambleSumFound(preambleList, numbers[i]);
+                if (!found)
                     return (numbers[i], i);
             }
 
@@ -73,12 +73,17 @@ namespace Problem_9
                 }
             }
 
+            if (sum != invalidNumber || numbersQueue.Count < 2)
+            {
+                throw new Exception($"Expected to have a solution.");
+            }
+
             long min = numbersQueue.Min();
             long max = numbersQueue.Max();
             return min + max;
         }
 
-        private static bool GetPreambleSum(long[] preambleList, long number)
+        private static bool IsPreambleSumFound(long[] preambleList, long number)
         {
             foreach (int pn in preambleList)
             {
